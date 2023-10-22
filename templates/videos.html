@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block title %}Videos {% endblock %}
+{% block body %}
+<h1>Videos Page</h1>
+<ul>
+    {% for video in videos %}
+        <li>
+            <video controls width="320" height="240">
+                <source src="{{ url_for('get_video', video_id=video.id) }}" type="video/mp4">
+                <source src="{{ url_for('get_video', video_id=video.id) }}" type="video/mkv">
+                Your browser does not support the video tag.
+            </video>
+        </li>
+        {% endfor %}
+</ul>
+{% endblock %}
